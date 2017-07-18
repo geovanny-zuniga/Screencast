@@ -1,0 +1,6 @@
+framework module Pods_Screencast {
+  umbrella header "Pods-Screencast-umbrella.h"
+
+  export *
+  module * { export * }
+}

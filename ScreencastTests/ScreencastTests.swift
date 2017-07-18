@@ -24,6 +24,22 @@ class ScreencastTests: XCTestCase {
     func testExample() {
         // This is an example of a functional test case.
         // Use XCTAssert and related functions to verify your tests produce the correct results.
+        // Arrange
+        let stringToTest = "zjkfhajfksaf"
+        // Act
+        let isEmpty = stringToTest.isEmpty
+        
+        // Assert
+        XCTAssertFalse(isEmpty)
+    }
+    
+    func testStringEmpty() {
+        let stringToTest = "zjkfhajfksaf"
+        // Act
+        let isEmpty = stringToTest.isEmpty
+        
+        // Assert
+        XCTAssertFalse(isEmpty)
     }
     
     func testPerformanceExample() {
