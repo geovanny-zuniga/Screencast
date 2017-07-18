@@ -1,6 +1,5 @@
-# OS X
+S X
 .DS_Store
-
 #xcov
 xcov_output/
 # Xcode
@@ -22,7 +21,7 @@ DerivedData
 *.ipa
 *.dSYM.zip
 *.mobileprovision
-
 # CocoaPods
-Pods
+#Pods
+
 
