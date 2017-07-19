@@ -18,6 +18,15 @@ struct MUser: Mappable {
     var age: Int = 0
     var email: String = ""
     
+    init(userName: String, name:String, lastName:String, password: String, age: Int, email:String) {
+        self.userName = userName
+        self.name = name
+        self.lastName = lastName
+        self.password = password
+        self.age = age
+        self.email = email
+    }
+    
     init?(map: Map) {
         
     }

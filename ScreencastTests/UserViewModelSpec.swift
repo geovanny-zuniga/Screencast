@@ -9,6 +9,10 @@
 import Quick
 import Nimble
 import XCTest
+import RxSwift
+import RxCocoa
+import Moya
+
 @testable import Screencast
 class UserViewModelSpec: QuickSpec {
     
@@ -43,6 +47,7 @@ class UserViewModelSpec: QuickSpec {
                 loginError = userViewModel.validate(userName: "juan", password: "")
                 expect(LoginError.emptyPassword).to(equal(loginError))
             }
+            
         }
     }
     

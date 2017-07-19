@@ -23,8 +23,15 @@ class EpisodeListViewModel: DataSource {
     
     var endLoadingSignal = PublishSubject<Any?>()
     
+    var isFiltered: Bool = false
+    
+    /// Text to filter
+    private var filterText = ""
     
     var episodes: [MEpisode] = [MEpisode]()
+    
+    // Filtered episodes.
+    var filteredEpisodes: [MEpisode] = [MEpisode]()
     
     func getEpisode()  {
         beginLoadingSignal.onNext(nil)
@@ -37,6 +44,7 @@ class EpisodeListViewModel: DataSource {
                     switch event {
                     case .next(let episodesObject):
                         strongSelf.episodes = episodesObject.episodes
+                        strongSelf.filteredEpisodes = strongSelf.episodes
                         strongSelf.updatedContentSignal.onNext(nil)
                         strongSelf.endLoadingSignal.onNext(nil)
                     case .error(let error):
@@ -51,6 +59,17 @@ class EpisodeListViewModel: DataSource {
         
     }
     
+    /// Filter the episodes array and create a filtered array.
+    ///
+    /// - Parameter byText: text for the filter.
+    func filter(byText: String) {
+        filteredEpisodes.removeAll()
+        for episodes in self.episodes {
+            if episodes.title.uppercased().contains(byText.uppercased()) {
+                filteredEpisodes.append(episodes)
+            }
+        }
+    }
     func hasData() -> Bool {
         return (episodes.count != 0)
     }
@@ -60,11 +79,20 @@ class EpisodeListViewModel: DataSource {
     }
     
     func numberOfRowsInSection(_ section: Int) -> Int {
-        return episodes.count
+        var returnValue = episodes.count
+        if self.isFiltered {
+            returnValue = filteredEpisodes.count
+        }
+        return returnValue
     }
     
     func object(atIndex: IndexPath) -> MEpisode {
-        return episodes[atIndex.row]
+        var episode = episodes[atIndex.row]
+        if self.isFiltered {
+            episode = filteredEpisodes[atIndex.row]
+        }
+
+        return episode
     }
     
     func title(atIndex index: IndexPath) -> String {
