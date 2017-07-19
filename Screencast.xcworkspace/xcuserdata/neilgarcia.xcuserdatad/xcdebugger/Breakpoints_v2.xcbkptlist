@@ -33,38 +33,6 @@
             endingLineNumber = "32"
             landmarkName = "setupSignals()"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Screencast.ScreencastEpisodeListTableViewController.(setupSignals () -&gt; ()).(closure #1)"
-                  moduleName = "Screencast"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/neilgarcia/Documents/src/IOS/Screencast/Screencast/ScreencastEpisodeListTableViewController.swift"
-                  timestampString = "521762935.368485"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "31"
-                  endingLineNumber = "31"
-                  offsetFromSymbolStart = "47">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Screencast.ScreencastEpisodeListTableViewController.(setupSignals () -&gt; ()).(closure #1)"
-                  moduleName = "Screencast"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/neilgarcia/Documents/src/IOS/Screencast/Screencast/ScreencastEpisodeListTableViewController.swift"
-                  timestampString = "521762935.371314"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "31"
-                  endingLineNumber = "31"
-                  offsetFromSymbolStart = "71">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -129,38 +97,6 @@
             endingLineNumber = "36"
             landmarkName = "getEpisode()"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Screencast.EpisodeListViewModel.(getEpisode () -&gt; ()).(closure #1)"
-                  moduleName = "Screencast"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/neilgarcia/Documents/src/IOS/Screencast/Screencast/EpisodeListViewModel.swift"
-                  timestampString = "521762935.385253"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "36"
-                  endingLineNumber = "36"
-                  offsetFromSymbolStart = "35">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Screencast.EpisodeListViewModel.(getEpisode () -&gt; ()).(closure #1)"
-                  moduleName = "Screencast"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/neilgarcia/Documents/src/IOS/Screencast/Screencast/EpisodeListViewModel.swift"
-                  timestampString = "521762935.386788"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "36"
-                  endingLineNumber = "36"
-                  offsetFromSymbolStart = "68">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy

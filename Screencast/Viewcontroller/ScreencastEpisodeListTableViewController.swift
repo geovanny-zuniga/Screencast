@@ -15,12 +15,14 @@ class ScreencastEpisodeListTableViewController: UITableViewController {
 
     var disposeBag = DisposeBag()
     
+    let searchController = UISearchController(searchResultsController: nil)
+    
     lazy var episodeListViewModel = EpisodeListViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupSignals()
-        self.navigationItem.setHidesBackButton(true, animated: true)
+        initUI()
         episodeListViewModel.getEpisode()
     }
 
@@ -48,6 +50,14 @@ class ScreencastEpisodeListTableViewController: UITableViewController {
         
     }
 
+    func initUI() {
+        self.navigationItem.setHidesBackButton(true, animated: true)
+        searchController.searchResultsUpdater = self
+        searchController.dimsBackgroundDuringPresentation = false
+        searchController.searchBar.delegate = self
+        definesPresentationContext = true
+        tableView.tableHeaderView = searchController.searchBar
+    }
     // MARK: - UI Actions
     
     
@@ -76,12 +86,20 @@ class ScreencastEpisodeListTableViewController: UITableViewController {
         performSegue(withIdentifier: "ShowDetailSegue", sender: episodeListViewModel.object(atIndex: indexPath))
     }
     
+    func filterContentForSearchText(searchText: String, scope: String = "All") {
+//        filteredCandies = candies.filter { candy in
+//            return candy.name.lowercaseString.containsString(searchText.lowercaseString)
+//        }
+//        
+//        tableView.reloadData()
+    }
+
+    
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
         if segue.identifier == "ShowDetailSegue" {
             if let episodeDetailViewController = segue.destination as? EpisodeDetailViewController {
                 episodeDetailViewController.episodeViewModel = EpisodeViewModel(episode: sender as! MEpisode)
@@ -89,6 +107,24 @@ class ScreencastEpisodeListTableViewController: UITableViewController {
         }
         
     }
-    
-
 }
+
+extension ScreencastEpisodeListTableViewController: UISearchResultsUpdating {
+    func updateSearchResults(for searchController: UISearchController) {
+        if let textToSearch = searchController.searchBar.text, !textToSearch.isEmpty {
+            episodeListViewModel.isFiltered = true
+            episodeListViewModel.filter(byText: textToSearch)
+            tableView.reloadData()
+        } else {
+            episodeListViewModel.isFiltered = false
+            tableView.reloadData()
+        }
+    }
+}
+extension ScreencastEpisodeListTableViewController: UISearchBarDelegate {
+    public func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        episodeListViewModel.isFiltered = false
+        tableView.reloadData()
+    }
+}
+
